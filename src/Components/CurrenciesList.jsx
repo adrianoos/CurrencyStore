@@ -2,8 +2,8 @@ import React from 'react'
 
 const CurrenciesList = () => {
     return (
-        <div>
-            
+        <div className='CurrenciesList'>
+            <h1>currencies list</h1>
         </div>
     )
 }

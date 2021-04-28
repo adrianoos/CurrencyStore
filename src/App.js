@@ -25,6 +25,8 @@ useEffect(() => {
   return (
     <div className="App">
       <Header data={data}/>
+      <Navigation />
+      <CurrenciesList />
     </div>
   );
 }

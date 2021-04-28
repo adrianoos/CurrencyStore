@@ -2,8 +2,9 @@ import React from 'react'
 
 const Navigation = () => {
     return (
-        <div>
-            
+        <div className='Navigation'>
+            <button className='NavButtons'>Favorites</button>
+            <button className='NavButtons'>Delete All</button>
         </div>
     )
 }
