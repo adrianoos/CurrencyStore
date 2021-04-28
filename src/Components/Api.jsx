@@ -9,7 +9,7 @@ const fetchData = async (table, currency) => {
 
       const mofifiedResponse = {
         date: getTable.data[0].effectiveDate,
-        data: getTable.data[0].rates
+        rates: getTable.data[0].rates
         
       }
     return mofifiedResponse;

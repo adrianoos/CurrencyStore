@@ -1,6 +1,6 @@
 import {useState, useEffect } from 'react'
 import './App.css';
-import { fetchData, Header, Navigation, CurrenciesList, CurrencyItem } from './Components';
+import { fetchData, Header, Navigation, CurrenciesList } from './Components';
 
 
 
@@ -19,14 +19,12 @@ useEffect(() => {
   getData()
  },[])
 
- 
- console.log(data)
 
   return (
     <div className="App">
       <Header data={data}/>
       <Navigation />
-      <CurrenciesList />
+      <CurrenciesList data={data}/>
     </div>
   );
 }

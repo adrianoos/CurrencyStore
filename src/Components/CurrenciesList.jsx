@@ -1,9 +1,17 @@
 import React from 'react'
+import { CurrencyItem } from './'
 
-const CurrenciesList = () => {
+const CurrenciesList = ({ data }) => {
+
+    const items = data.rates;
+
     return (
         <div className='CurrenciesList'>
-            <h1>currencies list</h1>
+        { data.hasOwnProperty('date') ? items.map((item) => 
+        <CurrencyItem 
+        key={item.code}
+        title={item.currency}
+        />) : '' }
         </div>
     )
 }
