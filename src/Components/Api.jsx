@@ -5,10 +5,11 @@ const fetchData = async (table, currency) => {
     try {
       
       const getTable = await axios.get(`http://api.nbp.pl/api/exchangerates/tables/${table}`)
-     // const getCurrency = await axios.get(`http://api.nbp.pl/api/exchangerates/rates/${table}/${currency}`)
+   //const getCurrency = await axios.get(`http://api.nbp.pl/api/exchangerates/rates/${table}/${currency}`)
 
       const mofifiedResponse = {
-        data: getTable
+        date: getTable.data[0].effectiveDate,
+        data: getTable.data[0].rates
         
       }
     return mofifiedResponse;
