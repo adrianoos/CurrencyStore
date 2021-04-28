@@ -2,18 +2,19 @@ import {useState, useEffect } from 'react'
 import './App.css';
 import { fetchData, Header, Navigation, CurrenciesList } from './Components';
 
+// data to obiekt 
+// data.rates to tablica
 
 const App = () => {
 
 const [ data, setData ] = useState({})
+const [ favorites, setFavorites ] = useState({})
 const [ tableType, setTableType ] = useState('A')
 
 const getData = async () =>{
 const response = await fetchData(tableType)
 setData(response)
-}
-
-console.log(data)
+};
 
 useEffect(() => {
   getData()
@@ -27,7 +28,11 @@ useEffect(() => {
    }
  }
 
-
+const updateFavs = (code) => {
+  const clickedIndex = data.rates.findIndex((item) => (item.code === code))
+  let tempArray = [...data.rates]
+  tempArray[clickedIndex] = {...tempArray[clickedIndex], favs: !tempArray[clickedIndex].favs }
+}
 
   return (
     <div className="App">
@@ -36,7 +41,10 @@ useEffect(() => {
       changeTable={changeTable}
       tableType={tableType}
       />
-      <CurrenciesList data={data}/>
+      <CurrenciesList 
+      data={data}
+      updateFavs={updateFavs}
+      />
     </div>
   );
 }

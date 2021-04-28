@@ -1,7 +1,7 @@
 import React from 'react'
 import { CurrencyItem } from './'
 
-const CurrenciesList = ({ data }) => {
+const CurrenciesList = ({ data, updateFavs }) => {
 
     const items = data.rates;
 
@@ -13,9 +13,10 @@ const CurrenciesList = ({ data }) => {
         title={item.currency}
         code={item.code}
         value={item.mid}
+        updateFavs={updateFavs}
         />) : '' }
         </div>
     )
 }
 
-export default CurrenciesList
+export default CurrenciesList;

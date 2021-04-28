@@ -5,12 +5,15 @@ const fetchData = async (table, currency) => {
     try {
       
       const getTable = await axios.get(`http://api.nbp.pl/api/exchangerates/tables/${table}`)
-   //const getCurrency = await axios.get(`http://api.nbp.pl/api/exchangerates/rates/${table}/${currency}`)
+      //const getCurrency = await axios.get(`http://api.nbp.pl/api/exchangerates/rates/${table}/${currency}`)
+      const currenciesArray = getTable.data[0].rates
+      currenciesArray.forEach((item)=> {
+        item.favs = false;
+      })
 
       const mofifiedResponse = {
         date: getTable.data[0].effectiveDate,
-        rates: getTable.data[0].rates
-        
+        rates: currenciesArray,
       }
     return mofifiedResponse;
     } catch (error) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Flag from 'react-world-flags'
 
-const CurrencyItem = ({ title, code, value }) => {
+const CurrencyItem = ({ title, code, value, updateFavs }) => {
 
     const flagCode = code.slice(0,2)
 
@@ -11,7 +11,7 @@ const CurrencyItem = ({ title, code, value }) => {
             <h3>{title}</h3>
             <p>currency code: <strong>{code}</strong></p>
             <p>exchange rate: <strong>{value}</strong></p>
-            <button>Favorites</button>
+            <button className='CurrItemButton' onClick={() => updateFavs(code)}>Favorites</button>
         </div>
     )
 }
