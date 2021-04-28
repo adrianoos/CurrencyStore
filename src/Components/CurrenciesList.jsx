@@ -2,7 +2,7 @@ import React from 'react'
 import { CurrencyItem } from './'
 
 const CurrenciesList = ({ data }) => {
-
+console.log(data)
     const items = data.rates;
 
     return (
@@ -11,6 +11,8 @@ const CurrenciesList = ({ data }) => {
         <CurrencyItem 
         key={item.code}
         title={item.currency}
+        code={item.code}
+        value={item.mid}
         />) : '' }
         </div>
     )

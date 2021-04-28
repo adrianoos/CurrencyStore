@@ -1,10 +1,12 @@
 import React from 'react'
 
-const CurrencyItem = ({ title }) => {
+const CurrencyItem = ({ title, code, value }) => {
 
     return (
         <div className='CurrencyItem'>
-            <h1>{title}</h1>
+            <h2>{title}</h2>
+            <p>currency code: {code}</p>
+            <p>exchange rate: <strong>{value}</strong></p>
         </div>
     )
 }

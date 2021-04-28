@@ -50,5 +50,7 @@ body {
 }
 
 .CurrencyItem {
+  width: 400px;
   margin: 0 20px;
+  border: 1px solid black;
 }
