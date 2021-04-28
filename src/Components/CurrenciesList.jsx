@@ -2,7 +2,7 @@ import React from 'react'
 import { CurrencyItem } from './'
 
 const CurrenciesList = ({ data }) => {
-console.log(data)
+
     const items = data.rates;
 
     return (

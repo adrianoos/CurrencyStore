@@ -1,14 +1,19 @@
 import React from 'react'
+import Flag from 'react-world-flags'
 
 const CurrencyItem = ({ title, code, value }) => {
 
+    const flagCode = code.slice(0,2)
+
     return (
         <div className='CurrencyItem'>
-            <h2>{title}</h2>
-            <p>currency code: {code}</p>
+            <Flag code={ flagCode } height='40'/>
+            <h3>{title}</h3>
+            <p>currency code: <strong>{code}</strong></p>
             <p>exchange rate: <strong>{value}</strong></p>
+            <button>Favorites</button>
         </div>
     )
 }
 
-export default CurrencyItem
+export default CurrencyItem;
