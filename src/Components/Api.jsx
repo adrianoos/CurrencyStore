@@ -1,30 +1,20 @@
-import React from 'react'
 import axios from 'axios';
 
-
-
-const Api = () => {
-
-const table = 'C'
-const code = 'EUR'
-
-  const getTable = async () => {
+const fetchData = async (table, currency) => {
+    
     try {
-     // const response = await axios.get(`http://api.nbp.pl/api/exchangerates/tables/${table}`)
-      const response = await axios.get(`http://api.nbp.pl/api/exchangerates/rates/${table}/${code}`)
-      //http://api.nbp.pl/api/exchangerates/rates/{table}/{code}/
-     // const data = response.JSON()
-      console.log(response)
-    } catch (error) {
       
-    }
-  }
-getTable()
-    return (
-        <div>
-            
-        </div>
-    )
-}
+      const getTable = await axios.get(`http://api.nbp.pl/api/exchangerates/tables/${table}`)
+     // const getCurrency = await axios.get(`http://api.nbp.pl/api/exchangerates/rates/${table}/${currency}`)
 
-export default Api
+      const mofifiedResponse = {
+        data: getTable
+        
+      }
+    return mofifiedResponse;
+    } catch (error) {
+      console.log(error)
+    } 
+};
+
+export default fetchData;

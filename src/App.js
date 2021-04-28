@@ -1,6 +1,18 @@
 import './App.css';
+import { fetchData } from './Components';
 
-function App() {
+
+
+const App = () => {
+
+const tableType = 'A'
+const getData = async () =>{
+const response = await fetchData(tableType)
+console.log(response)
+}
+
+ getData()
+
   return (
     <div className="App">
 
