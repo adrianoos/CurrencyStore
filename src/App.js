@@ -1,5 +1,5 @@
 import './App.css';
-import { fetchData } from './Components';
+import { fetchData, Header, Navigation, CurrenciesList, CurrencyItem } from './Components';
 
 
 
