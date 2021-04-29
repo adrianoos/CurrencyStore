@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navigation = ({ tableType, changeTable, switchFavsDisplay, favsDisplay }) => {
+const Navigation = ({ tableType, changeTable, switchFavsDisplay, favsDisplay, clearFavorites }) => {
 
 
     return (
@@ -9,8 +9,8 @@ const Navigation = ({ tableType, changeTable, switchFavsDisplay, favsDisplay }) 
              <button className='NavButtonsFilled' onClick={() => switchFavsDisplay()}>Favorites</button>
             }
             
-            <button className='NavButtons'>Delete All</button>
-            
+            <button className='NavButtons' onClick={() => clearFavorites()}>Delete All</button>
+
             { tableType === 'A' ? <button className='NavButtons' onClick={() => changeTable()}>Table: <strong>A</strong></button> :
             <button className='NavButtons' onClick={() => changeTable()}>Table: <strong>B</strong></button>
             }
