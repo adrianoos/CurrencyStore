@@ -1,12 +1,16 @@
 import React from 'react'
 
-const Navigation = ({ tableType, changeTable }) => {
+const Navigation = ({ tableType, changeTable, switchFavsDisplay, favsDisplay }) => {
 
 
     return (
         <div className='Navigation'>
-            <button className='NavButtons'>Favorites</button>
+            { !favsDisplay ? <button className='NavButtons' onClick={() => switchFavsDisplay()}>Favorites</button>:
+             <button className='NavButtonsFilled' onClick={() => switchFavsDisplay()}>Favorites</button>
+            }
+            
             <button className='NavButtons'>Delete All</button>
+            
             { tableType === 'A' ? <button className='NavButtons' onClick={() => changeTable()}>Table: <strong>A</strong></button> :
             <button className='NavButtons' onClick={() => changeTable()}>Table: <strong>B</strong></button>
             }

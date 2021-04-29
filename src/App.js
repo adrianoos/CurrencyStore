@@ -2,14 +2,12 @@ import {useState, useEffect } from 'react'
 import './App.css';
 import { fetchData, Header, Navigation, CurrenciesList } from './Components';
 
-// data to obiekt 
-// data.rates to tablica
-
 const App = () => {
 
 const [ data, setData ] = useState({})
-const [ favorites, setFavorites ] = useState({})
+const [ favorites, setFavorites ] = useState([])
 const [ tableType, setTableType ] = useState('A')
+const [ favsDisplay, setFavsDisplay ] = useState(false)
 
 const getData = async () =>{
 const response = await fetchData(tableType)
@@ -29,10 +27,25 @@ useEffect(() => {
  }
 
 const updateFavs = (code) => {
-  const clickedIndex = data.rates.findIndex((item) => (item.code === code))
-  let tempArray = [...data.rates]
-  tempArray[clickedIndex] = {...tempArray[clickedIndex], favs: !tempArray[clickedIndex].favs }
-}
+ 
+ const clickedIndex = data.rates.findIndex((item) => (item.code === code))
+ let clickedItem = data.rates[clickedIndex]
+
+  switch(true) {
+    case !favorites.includes(clickedItem):
+    setFavorites(favorites.concat(clickedItem))
+    break;
+
+    case favorites.includes(clickedItem): // 
+    setFavorites(favorites.filter(item => item.code !== clickedItem.code))
+    break;
+  }
+};
+
+const switchFavsDisplay = () =>{
+  setFavsDisplay(!favsDisplay)
+};
+
 
   return (
     <div className="App">
@@ -40,10 +53,14 @@ const updateFavs = (code) => {
       <Navigation
       changeTable={changeTable}
       tableType={tableType}
+      switchFavsDisplay={switchFavsDisplay}
+      favsDisplay={favsDisplay}
       />
       <CurrenciesList 
       data={data}
       updateFavs={updateFavs}
+      favorites={favorites}
+      favsDisplay={favsDisplay}
       />
     </div>
   );

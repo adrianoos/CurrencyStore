@@ -48,6 +48,17 @@ body {
   box-shadow: 0px 5px 5px rgb(170, 170, 170);
 }
 
+.NavButtonsFilled {
+  height: 45px;
+  width: 90px;
+  margin: 0 10px;
+  background-color: rgb(179, 109, 12);
+  font-family: 'Nunito', sans-serif;
+  border-radius: 4px;
+  font-size: medium;
+  box-shadow: 0px 5px 5px rgb(170, 170, 170);
+}
+
 .CurrencyItem {
   display: flex;
   align-items: center;
