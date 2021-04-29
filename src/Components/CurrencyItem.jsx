@@ -1,7 +1,7 @@
 import React from 'react'
 import Flag from 'react-world-flags'
-import { GrFavorite } from 'react-icons/gr'; // empty icon
-import { MdFavorite } from 'react-icons/md'; // fullfiled icon
+import { GrFavorite } from 'react-icons/gr';
+import { MdFavorite } from 'react-icons/md';
 
 const CurrencyItem = ({ title, code, value, updateFavs, favorites }) => {
 
@@ -13,9 +13,9 @@ const CurrencyItem = ({ title, code, value, updateFavs, favorites }) => {
             <Flag className='flag' code={ flagCode } height='40'/>
             <h3>{title}</h3>
             <p>currency code: <strong>{code}</strong></p>
-            <p>exchange rate: <strong>{value}</strong></p>
-            { !isInFavs ? <button onClick={() => updateFavs(code)}><GrFavorite/></button> :
-                     <button onClick={() => updateFavs(code)}><MdFavorite/></button>
+            <p>average rate: <strong>{value}</strong></p>
+            { !isInFavs ? <button className='favsBtn' onClick={() => updateFavs(code)}><GrFavorite size={32}/></button> :
+                     <button className='favsBtn' onClick={() => updateFavs(code)}><MdFavorite size={32}/></button>
             } 
         </div>
     )
