@@ -1,7 +1,9 @@
 import React from 'react'
 import { CurrencyItem } from './'
+import { useSelector } from 'react-redux'
 
-const CurrenciesList = ({ data, favorites, updateFavs, favsDisplay }) => {
+const CurrenciesList = ({ data, favorites, updateFavs }) => {
+    const favsDisplay = useSelector(state => state.favsDisplay)
 
     const emptyMsg = () => {
         return <h1>No items added</h1>

@@ -1,19 +1,20 @@
 import {useState, useEffect } from 'react'
 import { onConfirm } from 'react-confirm-pro';
 import { fetchData, Header, Navigation, CurrenciesList } from './Components';
+import { useSelector } from 'react-redux'
 import './App.css';
 
 const App = () => {
-
 const [ data, setData ] = useState({})
 const [ favorites, setFavorites ] = useState([])
 const [ tableType, setTableType ] = useState('A')
-const [ favsDisplay, setFavsDisplay ] = useState(false)
 
 const getData = async () =>{
 const response = await fetchData(tableType)
 setData(response)
 };
+
+
 
 useEffect(() => {
   getData()
@@ -50,9 +51,6 @@ const updateFavs = (code) => {
   }
 };
 
-const switchFavsDisplay = () =>{
-  setFavsDisplay(!favsDisplay)
-};
 
 const clearFavorites = () => {
   onConfirm({
@@ -72,15 +70,12 @@ const clearFavorites = () => {
       <Navigation
       changeTable={changeTable}
       tableType={tableType}
-      switchFavsDisplay={switchFavsDisplay}
-      favsDisplay={favsDisplay}
       clearFavorites={clearFavorites}
       />
       <CurrenciesList 
       data={data}
       updateFavs={updateFavs}
       favorites={favorites}
-      favsDisplay={favsDisplay}
       />
     </div>
   );

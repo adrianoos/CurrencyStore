@@ -16,7 +16,7 @@ const CurrencyItem = ({ title, code, value, updateFavs, favorites }) => {
             <p>currency code: <strong>{code}</strong></p>
             <p>average rate: <strong>{value}</strong></p>
             { !isInFavs ? <button className='favsBtn' onClick={() => updateFavs(code)}><AiOutlineStar className='icon' size={32}/></button> :
-                         <button className='favsBtn' onClick={() => updateFavs(code)}><AiFillStar className='icon' size={32}/></button>
+                          <button className='favsBtn' onClick={() => updateFavs(code)}><AiFillStar className='icon' size={32}/></button>
             } 
         </div>
     )

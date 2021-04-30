@@ -1,7 +1,6 @@
 import React from 'react'
-
 const Header = ({ data }) => {
-
+  
     const day = data.date
 
     return (
