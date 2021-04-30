@@ -5,7 +5,11 @@ const CurrenciesList = ({ data, favorites, updateFavs, favsDisplay }) => {
 
     const emptyMsg = () => {
         return <h1>No items added</h1>
-    }
+    };
+
+    const loadingMsg = () => {
+        return <h1>Loading...</h1>
+    };
 
     const allData = data.hasOwnProperty('date') ? data.rates.map((item) => 
     <CurrencyItem 
@@ -16,7 +20,7 @@ const CurrenciesList = ({ data, favorites, updateFavs, favsDisplay }) => {
     updateFavs={updateFavs}
     fav={item.favs}
     favorites={favorites}
-    />) : '' 
+    />) : loadingMsg() 
 
     const favsData = favorites.length ? favorites.map((item) => 
     <CurrencyItem 
