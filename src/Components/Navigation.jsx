@@ -1,5 +1,5 @@
 import React from 'react'
-import { setFavs } from '../Actions'
+import { setFavs, setTableType } from '../Actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Navigation = ({ tableType, changeTable, clearFavorites }) => {
@@ -14,8 +14,8 @@ const Navigation = ({ tableType, changeTable, clearFavorites }) => {
             
             <button className='NavButtons' onClick={() => clearFavorites()}>Delete All</button>
 
-            { tableType === 'A' ? <button className='NavButtons' onClick={() => changeTable()}>Table: <strong>A</strong></button> :
-            <button className='NavButtons' onClick={() => changeTable()}>Table: <strong>B</strong></button>
+            { tableType === 'A' ? <button className='NavButtons' onClick={() => dispatch(setTableType())}>Table: <strong>A</strong></button> :
+            <button className='NavButtons' onClick={() => dispatch(setTableType())}>Table: <strong>B</strong></button>
             }
             
         </div>

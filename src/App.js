@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux'
 import './App.css';
 
 const App = () => {
+  const tableType = useSelector(state => state.tableType)
+
 const [ data, setData ] = useState({})
 const [ favorites, setFavorites ] = useState([])
-const [ tableType, setTableType ] = useState('A')
 
 const getData = async () =>{
 const response = await fetchData(tableType)
@@ -15,18 +16,9 @@ setData(response)
 };
 
 
-
 useEffect(() => {
   getData()
  }, [tableType])
-
- const changeTable = () => {
-   if (tableType === 'A') {
-     setTableType('B')
-   } else if (tableType === 'B') {
-     setTableType('A')
-   }
- }
 
 const updateFavs = (code) => {
  
@@ -51,7 +43,6 @@ const updateFavs = (code) => {
   }
 };
 
-
 const clearFavorites = () => {
   onConfirm({
     title: ( <h3>Remove all favorites Items ?</h3>),
@@ -68,7 +59,6 @@ const clearFavorites = () => {
     <div className="App">
       <Header data={data}/>
       <Navigation
-      changeTable={changeTable}
       tableType={tableType}
       clearFavorites={clearFavorites}
       />

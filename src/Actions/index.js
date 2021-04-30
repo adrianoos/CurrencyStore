@@ -1,6 +1,6 @@
-export const setData = () => {
+export const setTableType = () => {
     return {
-    type: 'setData'
+    type: 'setTableType'
     }
     };
 
