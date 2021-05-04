@@ -7,6 +7,7 @@ Live Version -> https://adrianoos.github.io/CurrencyStore/
 App features:
 
 -fetching currency exchange rates from nbp api 
+
 -favorites feature
 
 Available Scripts:
