@@ -1,14 +1,11 @@
 import axios from 'axios';
 
-const fetchData = async (table, currency) => {
+const fetchData = async (table ) => {
     
     try {
       const getTable = await axios.get(`http://api.nbp.pl/api/exchangerates/tables/${table}`)
       const currenciesArray = getTable.data[0].rates
-      currenciesArray.forEach((item)=> {
-        item.favs = false;
-      })
-
+     
       const mofifiedResponse = {
         date: getTable.data[0].effectiveDate,
         rates: currenciesArray,

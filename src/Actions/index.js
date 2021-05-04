@@ -9,3 +9,10 @@ export const setFavs = () => {
         type: 'setFavs'
     }
 };
+
+export const setData = (item) => {
+    return {
+        type: 'setData',
+        payload: item
+    }
+};

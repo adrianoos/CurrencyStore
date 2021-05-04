@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux'
 import './App.css';
 
 const App = () => {
-  const tableType = useSelector(state => state.tableType)
 
+const tableType = useSelector(state => state.tableType)
 const [ data, setData ] = useState({})
 const [ favorites, setFavorites ] = useState([])
 
@@ -14,7 +14,6 @@ const getData = async () =>{
 const response = await fetchData(tableType)
 setData(response)
 };
-
 
 useEffect(() => {
   getData()
@@ -26,10 +25,7 @@ const updateFavs = (code) => {
  let clickedItem = data.rates[clickedIndex]
 
   switch(true) {
-    case !favorites.includes(clickedItem):
-    setFavorites(favorites.concat(clickedItem))
-    break;
-
+  
     case favorites.includes(clickedItem):
       onConfirm({
         title: ( <h3>Remove this currency from favorites ?</h3>),
@@ -40,6 +36,11 @@ const updateFavs = (code) => {
         },
       })
     break;
+    
+    default:
+    setFavorites(favorites.concat(clickedItem))
+    break;
+
   }
 };
 
@@ -54,6 +55,7 @@ const clearFavorites = () => {
     },
   })
 };
+
 
   return (
     <div className="App">

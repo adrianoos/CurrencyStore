@@ -1,5 +1,5 @@
 import React from 'react'
-import { CurrencyItem } from './'
+import { CurrencyItem } from '.'
 import { useSelector } from 'react-redux'
 
 const CurrenciesList = ({ data, favorites, updateFavs }) => {
